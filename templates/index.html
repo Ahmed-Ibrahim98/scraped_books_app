@@ -1,0 +1,67 @@
+<!--
+Index Page Template
+- Shows all books (paginated, 20 per page)
+- Allows search + filter by category
+- Displays book cards with brief info
+-->
+{% extends 'base.html' %}
+{% block head %}
+    <title>Scraped Books - Home</title>
+{% endblock %}
+
+{% block body %}
+    <!-- Header -->
+    <header>
+        <h1><a href="{{ url_for('index') }}">📚 Scraped Books</a></h1>
+    </header>
+
+    <!-- Search & Filter Section -->
+    <section class="filters">
+        <form method="get" action="{{ url_for('index') }}">
+            <!-- Search bar -->
+            <input type="text" name="search" placeholder="Search books..." value="{{ search }}">
+            
+            <!-- Category filter dropdown -->
+            <select name="category">
+                <option value="">All categories</option>
+                {% for cat in categories %}
+                    <option value="{{ cat }}" {% if cat == category %}selected{% endif %}>{{ cat }}</option>
+                {% endfor %}
+            </select>
+
+            <!-- Submit button -->
+            <button type="submit">Filter</button>
+        </form>
+    </section>
+
+    <!-- Books Grid -->
+    <main class="grid">
+        {% for book in books %}
+        <div class="card">
+            <h2>{{ book.title }}</h2>
+            <p><strong>Category:</strong> {{ book.category }}</p>
+            <p><strong>Price:</strong> ${{ book.price }}</p>
+            <p><strong>Rating:</strong> {{ book.rating }}/5</p>
+            <p><strong>Availability:</strong> {{ book.availability }}</p>
+
+            <!-- Show only first 180 chars of description -->
+            <p class="description">{{ book.description[:180] }}{% if book.description|length > 180 %}...{% endif %}</p>
+
+            <!-- Link to detail page -->
+            <a href="{{ url_for('book_detail', upc=book.upc) }}">View Book</a>
+        </div>
+        {% endfor %}
+    </main>
+
+    <!-- Pagination -->
+    <nav class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('index', page=page-1, search=search, category=category) }}">Previous</a>
+        {% endif %}
+        <span>Page {{ page }} of {{ total_pages }}</span>
+        {% if page < total_pages %}
+            <a href="{{ url_for('index', page=page+1, search=search, category=category) }}">Next</a>
+        {% endif %}
+    </nav>
+{% endblock %}
+

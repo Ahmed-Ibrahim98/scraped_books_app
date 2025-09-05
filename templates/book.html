@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>{{ book.title }} - Book Details</title>
+{% endblock %}
+
+{% block body %}
+    <!-- Header -->
+    <header>
+        <h1><a href="{{ url_for('index') }}">📚 Scraped Books</a></h1>
+    </header>
+
+    <!-- Book Details -->
+    <main class="book-detail">
+        <div class="detail-card">
+            <h2>{{ book.title }}</h2>
+            <p><strong>Category:</strong> {{ book.category }}</p>
+            <p><strong>Price:</strong> ${{ book.price }}</p>
+            <p><strong>Rating:</strong> {{ book.rating }}/5</p>
+            <p><strong>Availability:</strong> {{ book.availability }}</p>
+            <p><strong>UPC:</strong> {{ book.upc }}</p>
+            <p><strong>Description:</strong> {{ book.description }}</p>
+            {% if book.url %}
+                <p><a href="{{ book.url }}" target="_blank">🔗 View Original Source</a></p>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}
+

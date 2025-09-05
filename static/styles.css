@@ -1,0 +1,163 @@
+/* SCSS stylesheet for the book showcase app */
+/* General Layout */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background: #2c3e50;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: #ecf0f1;
+  transition: color 0.3s ease;
+}
+
+header h1 a:hover {
+  color: #1abc9c;
+}
+
+/* Filters Section */
+.filters {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.filters input,
+.filters select,
+.filters button {
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.filters button {
+  background: #1abc9c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background: #16a085;
+}
+
+/* Books Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Book Cards */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card .description {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin: 10px 0;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.card a:hover {
+  color: #2980b9;
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.pagination span {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Book Detail Page */
+.book-detail {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.detail-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card h2 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.detail-card p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.detail-card a {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.detail-card a:hover {
+  color: #2980b9;
+}/*# sourceMappingURL=styles.css.map */
